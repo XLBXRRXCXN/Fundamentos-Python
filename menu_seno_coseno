@@ -1,0 +1,73 @@
+def menu():
+    print('''
+    -----------------------
+    | MENU OPERACIONES    |
+    |---------------------|
+    | 0.salir             |
+    | 1.Calcular el seno  |
+    | 2.Calcular coseno   |
+    -----------------------
+    ''')
+    op=int(input(" cual opcion desea?"))
+    while(op<0 or op>2):
+        print(" opcion no valida")
+        op = int(input(" cual opcion dese?"))
+    return op
+
+def factorial(numero):
+    fac=1
+    i=1
+    while(i<=numero):
+        fac=fac*i
+        i=i+1
+    return fac
+
+'''
+def potencia(b,e):
+    pot=1
+    for i  in range(1,e+1):
+        pot=pot*b
+    return pot
+'''
+def seno(angulo):
+    s=0
+    i=0
+    w=angulo*0.0174533
+    while(i<=15):
+        x=pow(-1,i)
+        y=pow(w,(2*i)+1)
+        z=factorial((2*i)+1)
+        s=s+((x*y)/z)
+        i=i+1
+
+    return s
+
+def coseno(angulo):
+    s=0
+    i=0
+    w=angulo*0.0174533
+    while(i<=15):
+        x=pow(-1,i)
+        y=pow(w,(2*i))
+        z=factorial((2*i))
+        s=s+((x*y)/z)
+        i=i+1
+
+    return s
+
+# Principal
+
+op=menu()
+while(op!=0):
+  if(op==1):
+        ang=float(input(" ingrese el angulo"))
+        x=seno(ang)
+        print(f"\n el valor del seno es {x:.3f}")
+  if (op == 2):
+        ang = float(input(" ingrese el angulo"))
+        x = coseno(ang)
+        print(f"\n  el valor del coseno es {x:.3f}")
+
+ # input("\n p#ulse enter para continuar....")
+
+  op = menu()
